@@ -21,4 +21,38 @@
 	add_action('wp_enqueue_scripts', 'custom_style');
 
 	add_theme_support('post-thumbnails');
+
 	add_theme_support('title-tag');
+
+	function longueurExtrait() {
+		return 20;
+	}
+	add_filter('excerpt_length', 'longueurExtrait');
+
+	function customLireLaSuite() {
+		return '&nbsp; -> ... <-';
+	}
+	add_filter('excerpt_more', 'customLireLaSuite');
+	
+	function api_post_type() 
+	{
+		register_post_type(
+			
+			'service', array
+			(
+				'label' => 'service',
+				'labels' => array
+				(
+					'name' => 'Services',
+					'singular_name' => 'Service'
+				),
+				'public' => true,
+				'supports' => array('title', 'editor', 'thumbnail'),
+				'has_archive' => false,
+				'menu_icon' => 'dashicons-format-status',
+				'show_in_rest' => true
+			)
+		);
+	}
+	add_action('init', 'api_post_type');
+
