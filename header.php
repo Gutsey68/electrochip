@@ -29,23 +29,28 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
+              <ul class="navbar-nav">
                 <li class="nav-item active">
                   <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Service </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="blog.html"> Blog </a>
-                </li>
+
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html">Contact </a>
-                </li>
+                </li>              
+                <?php wp_nav_menu( array 
+                (
+                  'theme_location' => 'Header',
+                  'menu_class' => '',
+                  'menu_id' => '',
+                  'container'=> 'nav-item active',
+                  'container_id' => 'tt-nav',
+                  'depth' => '2',
+                  'menu_class'        => 'navbar-nav',
+                  'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                  'walker'            => new WP_Bootstrap_Navwalker(),
+                )); ?>  
               </ul>
+
             </div>
           </div>
         </nav>

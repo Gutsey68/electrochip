@@ -24,17 +24,17 @@ get_header();
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="img-box">
-                    <img src="images/slider-img.jpg" alt="">
+                    <img src="../images/slider-img.jpg" alt="">
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="img-box">
-                    <img src="images/slider-img.jpg" alt="">
+                    <img src="/images/slider-img.jpg" alt="">
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="img-box">
-                    <img src="images/slider-img.jpg" alt="">
+                    <img src="/images/slider-img.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -57,12 +57,12 @@ get_header();
   <div class="container">
     <div class="heading_container">
       <h2>Our Services</h2>
-      <img src="images/plug.png" alt="">
+      <img src="/images/plug.png" alt="">
     </div>
     <div class="service_container">
       <div class="box">
         <div class="img-box">
-          <img src="images/s1.png" class="img1" alt="">
+          <img src="/images/s1.png" class="img1" alt="">
         </div>
         <div class="detail-box">
           <h5>Equipment installation</h5>
@@ -71,7 +71,7 @@ get_header();
       </div>
       <div class="box active">
         <div class="img-box">
-          <img src="images/s2.png" class="img1" alt="">
+          <img src="/images/s2.png" class="img1" alt="">
         </div>
         <div class="detail-box">
           <h5>Windmill Energy</h5>
@@ -80,7 +80,7 @@ get_header();
       </div>
       <div class="box">
         <div class="img-box">
-          <img src="images/s3.png" class="img1" alt="">
+          <img src="../images/s3.png" class="img1" alt="">
         </div>
         <div class="detail-box">
           <h5>Equipment Maintenance</h5>
@@ -89,7 +89,7 @@ get_header();
       </div>
       <div class="box ">
         <div class="img-box">
-          <img src="images/s4.png" class="img1" alt="">
+          <img src="../images/s4.png" class="img1" alt="">
         </div>
         <div class="detail-box">
           <h5>Offshore Engineering</h5>
@@ -98,7 +98,7 @@ get_header();
       </div>
       <div class="box">
         <div class="img-box">
-          <img src="images/s5.png" class="img1" alt="">
+          <img src="/images/s5.png" class="img1" alt="">
         </div>
         <div class="detail-box">
           <h5>Electrical Wiring</h5>
@@ -121,7 +121,7 @@ get_header();
             <h2>
               About Us
             </h2>
-            <img src="images/plug.png" alt="">
+            <img src="../images/plug.png" alt="">
           </div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -138,10 +138,10 @@ get_header();
       <div class="col-md-6">
         <div class="img_container">
           <div class="img-box b1">
-            <img src="images/about-img1.jpg" alt="" />
+            <img src="../images/about-img1.jpg" alt="" />
           </div>
           <div class="img-box b2">
-            <img src="images/about-img2.jpg" alt="" />
+            <img src="../images/about-img2.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -156,13 +156,13 @@ get_header();
       <h2>
         Blog
       </h2>
-      <img src="images/plug.png" alt="">
+      <img src="../images/plug.png" alt="">
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="box">
           <div class="img-box">
-            <img src="images/blog1.jpg" alt="">
+            <img src="../images/blog1.jpg" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -178,7 +178,7 @@ get_header();
       <div class="col-md-6">
         <div class="box">
           <div class="img-box">
-            <img src="images/blog2.jpg" alt="">
+            <img src="../images/blog2.jpg" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -202,7 +202,7 @@ get_header();
       <h2>
         Contact Us
       </h2>
-      <img src="images/plug.png" alt="">
+      <img src="../images/plug.png" alt="">
     </div>
   </div>
   <div class="container">
@@ -249,7 +249,7 @@ get_header();
       <div class="row">
         <div class="col-md-4">
           <a href="">
-            <img src="images/location-white.png" alt="">
+            <img src="../images/location-white.png" alt="">
             <span>
               Passages of Lorem Ipsum available
             </span>
@@ -257,7 +257,7 @@ get_header();
         </div>
         <div class="col-md-4">
           <a href="">
-            <img src="images/telephone-white.png" alt="">
+            <img src="../images/telephone-white.png" alt="">
             <span>
               Call : +012334567890
             </span>
@@ -265,7 +265,7 @@ get_header();
         </div>
         <div class="col-md-4">
           <a href="">
-            <img src="images/envelope-white.png" alt="">
+            <img src="../images/envelope-white.png" alt="">
             <span>
               demo@gmail.com
             </span>
@@ -288,22 +288,22 @@ get_header();
         <div class="info_social">
           <div>
             <a href="">
-              <img src="images/fb.png" alt="">
+              <img src="../images/fb.png" alt="">
             </a>
           </div>
           <div>
             <a href="">
-              <img src="images/twitter.png" alt="">
+              <img src="../images/twitter.png" alt="">
             </a>
           </div>
           <div>
             <a href="">
-              <img src="images/linkedin.png" alt="">
+              <img src="../images/linkedin.png" alt="">
             </a>
           </div>
           <div>
             <a href="">
-              <img src="images/instagram.png" alt="">
+              <img src="../images/instagram.png" alt="">
             </a>
           </div>
         </div>
