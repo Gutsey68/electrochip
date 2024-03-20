@@ -370,7 +370,7 @@ a:focus {
   margin-top: 25px;
 }
 
-.service_section .btn-box a {
+.service_section .btn-box a  {
   display: inline-block;
   padding: 10px 35px;
   background-color: #4b208c;
@@ -690,3 +690,4 @@ a:focus {
   color: #222222;
 }
 /*# sourceMappingURL=style.css.map */
+

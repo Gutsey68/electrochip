@@ -9,159 +9,34 @@ get_header();
 <section class="service_section layout_padding">
     <div class="container">
       <div class="heading_container">
-        <h2>
-          Our Services
-        </h2>
-        <img src="images/plug.png" alt="">
+        <?php the_field('titre_et_icone'); ?>
       </div>
-
       <div class="service_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s1.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Equipment installation
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
-          </div>
+        <?php
+					$requete = new WP_Query(array
+					(
+						'post_type' => 'service',
+						'posts_per_page' => -1,
+						'order' => 'DESC',
+						'orderby' => 'ID'
+					));
+					if ( $requete->have_posts() ) { while ($requete->have_posts())  { $requete->the_post();
+				?>
+            <div class="box">
+              <div class="img-box">
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img1" alt="<?php the_title_attribute(); ?>">
+              </div>
+              <div class="detail-box">
+                <h5><?php the_title(); ?></h5>
+                <?php the_excerpt(); ?>
+                <a href="<?php the_permalink(); ?>">En savoir plus</a>
+              </div>
+            </div>
+				<?php 
+					} } 
+					wp_reset_postdata(); 
+				?>		
         </div>
-        <div class="box active">
-          <div class="img-box">
-            <img src="images/s2.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Windmill Energy
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s3.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Equipment Maintenance
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
-          </div>
-        </div>
-        <div class="box ">
-          <div class="img-box">
-            <img src="images/s4.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Offshore Engineering
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/s5.png" class="img1" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Electrical Wiring
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Read More
-        </a>
-      </div>
     </div>
   </section>
-  <!-- end service section -->
-
-
-  <!-- info section -->
-
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="info_contact">
-        <div class="row">
-          <div class="col-md-4">
-            <a href="">
-              <img src="images/location-white.png" alt="">
-              <span>
-                Passages of Lorem Ipsum available
-              </span>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a href="">
-              <img src="images/telephone-white.png" alt="">
-              <span>
-                Call : +012334567890
-              </span>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a href="">
-              <img src="images/envelope-white.png" alt="">
-              <span>
-                demo@gmail.com
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-lg-9">
-          <div class="info_form">
-            <form action="">
-              <input type="text" placeholder="Enter your email">
-              <button>
-                subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="info_social">
-            <div>
-              <a href="">
-                <img src="images/fb.png" alt="">
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="images/twitter.png" alt="">
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="images/linkedin.png" alt="">
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <img src="images/instagram.png" alt="">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
 <?php get_footer();

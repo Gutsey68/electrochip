@@ -11,10 +11,7 @@ get_header();
     <div class="row">
       <div class="col-md-6 ">
         <div class="detail_box">
-          <h1>Electrical <br> Service <br>Providers</h1>
-          <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-            looking at its layout. The point of using Lorem</p>
-          <a href="" class="">Contact Us</a>
+          <?php the_field('section'); ?>
         </div>
       </div>
       <div class="col-lg-5 col-md-6 offset-lg-1">
@@ -22,21 +19,17 @@ get_header();
           <div class="img_container">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active">
+              <?php 
+                $isFirstItem = true;
+                if( have_rows('slider') ): while( have_rows('slider') ): the_row();
+                $imgSlider = get_sub_field('img_slider');
+              ?>	
+                <div class="carousel-item <?php if($isFirstItem) { echo 'active'; $isFirstItem = false; } ?>">
                   <div class="img-box">
-                    <img src="../images/slider-img.jpg" alt="">
+                    <img src="<?php echo $imgSlider['url']; ?>" alt="<?php echo $imgSlider['alt']; ?>">
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <div class="img-box">
-                    <img src="/images/slider-img.jpg" alt="">
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="img-box">
-                    <img src="/images/slider-img.jpg" alt="">
-                  </div>
-                </div>
+              <?php endwhile; endif; ?>
               </div>
             </div>
           </div>
@@ -60,54 +53,32 @@ get_header();
       <img src="/images/plug.png" alt="">
     </div>
     <div class="service_container">
-      <div class="box">
-        <div class="img-box">
-          <img src="/images/s1.png" class="img1" alt="">
-        </div>
-        <div class="detail-box">
-          <h5>Equipment installation</h5>
-          <p>There are many variations of passages of Lorem Ipsum available,</p>
-        </div>
-      </div>
-      <div class="box active">
-        <div class="img-box">
-          <img src="/images/s2.png" class="img1" alt="">
-        </div>
-        <div class="detail-box">
-          <h5>Windmill Energy</h5>
-          <p>There are many variations of passages of Lorem Ipsum available,</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="img-box">
-          <img src="../images/s3.png" class="img1" alt="">
-        </div>
-        <div class="detail-box">
-          <h5>Equipment Maintenance</h5>
-          <p>There are many variations of passages of Lorem Ipsum available,</p>
-        </div>
-      </div>
-      <div class="box ">
-        <div class="img-box">
-          <img src="../images/s4.png" class="img1" alt="">
-        </div>
-        <div class="detail-box">
-          <h5>Offshore Engineering</h5>
-          <p>There are many variations of passages of Lorem Ipsum available,</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="img-box">
-          <img src="/images/s5.png" class="img1" alt="">
-        </div>
-        <div class="detail-box">
-          <h5>Electrical Wiring</h5>
-          <p>There are many variations of passages of Lorem Ipsum available,</p>
-        </div>
-      </div>
-    </div>
+    <?php
+					$requete = new WP_Query(array
+					(
+						'post_type' => 'service',
+						'posts_per_page' => 3,
+						'order' => 'DESC',
+						'orderby' => 'ID'
+					));
+					if ( $requete->have_posts() ) { while ($requete->have_posts())  { $requete->the_post();
+				?>
+          <div class="box">
+            <div class="img-box">
+              <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img1" alt="<?php the_title_attribute(); ?>">
+            </div>
+            <div class="detail-box">
+              <h5><?php the_title(); ?></h5>
+              <?php the_excerpt(); ?>
+              <a href="<?php the_permalink(); ?>">En savoir plus</a>
+            </div>
+          </div>
+      <?php 
+        } } 
+        wp_reset_postdata(); 
+      ?>		
     <div class="btn-box">
-      <a href="">Read More</a>
+      <a href="<?php echo esc_url(get_permalink(get_page_by_path('service'))); ?>">Read more</a>
     </div>
   </div>
 </section>
@@ -117,38 +88,26 @@ get_header();
     <div class="row">
       <div class="col-md-6">
         <div class="detail-box">
-          <div class="heading_container">
-            <h2>
-              About Us
-            </h2>
-            <img src="../images/plug.png" alt="">
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit
-          </p>
-          <a href="">
-            Read More
-          </a>
+						<?php the_field('section_about_us'); ?>
         </div>
       </div>
       <div class="col-md-6">
         <div class="img_container">
           <div class="img-box b1">
-            <img src="../images/about-img1.jpg" alt="" />
+            <?php $imageGrand = get_field('image_about'); ?>
+              <img src="<?php echo $imageGrand['url']; ?>" alt="<?php echo $imageGrand['alt']; 
+            ?>">
           </div>
           <div class="img-box b2">
-            <img src="../images/about-img2.jpg" alt="" />
+            <?php $imagePetit = get_field('image_about_petite'); ?>
+              <img src="<?php echo $imagePetit['url']; ?>" alt="<?php echo $imagePetit['alt']; 
+            ?>">
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- end about section -->
 <!-- blog section -->
 <section class="blog_section layout_padding">
   <div class="container">
@@ -159,37 +118,28 @@ get_header();
       <img src="../images/plug.png" alt="">
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="box">
-          <div class="img-box">
-            <img src="../images/blog1.jpg" alt="">
+        <?php
+          $last = new WP_Query(array
+          (
+            'posts_per_page' => 2,
+            'order' => 'DESC',
+            'orderby' => 'ID'
+          ));
+          if ( $last->have_posts() ) { while ($last->have_posts())  { $last->the_post();
+          ?>
+          <div class="col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <?php the_post_thumbnail(); ?>
+              </div>
+              <div class="detail-box">
+                <h5><?php the_title(); ?></h5>
+                <?php the_excerpt(); ?>
+                <a href="<?php the_permalink(); ?>" class="">Lire l'article</a>
+              </div>
+            </div>
           </div>
-          <div class="detail-box">
-            <h5>
-              Blog Title Goes Here
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="box">
-          <div class="img-box">
-            <img src="../images/blog2.jpg" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Blog Title Goes Here
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised
-            </p>
-          </div>
-        </div>
+        <?php } } wp_reset_postdata(); ?>
       </div>
     </div>
   </div>
@@ -208,108 +158,16 @@ get_header();
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form action="">
-          <div>
-            <input type="text" placeholder="Name" />
-          </div>
-          <div>
-            <input type="email" placeholder="Email" />
-          </div>
-          <div>
-            <input type="text" placeholder="Phone Number" />
-          </div>
-          <div>
-            <input type="text" class="message-box" placeholder="Message" />
-          </div>
-          <div class="d-flex ">
-            <button>
-              SEND
-            </button>
-          </div>
-        </form>
+        <?php echo do_shortcode('[contact-form-7 id="8f120b0" title="Formulaire de contact"]'); ?>
       </div>
       <div class="col-md-6">
         <div class="map_container">
           <div class="map-responsive">
-            <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
-              width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%"
-              allowfullscreen></iframe>
+            <?php the_field('google_map'); ?>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- end contact section -->
-<!-- info section -->
-<section class="info_section layout_padding">
-  <div class="container">
-    <div class="info_contact">
-      <div class="row">
-        <div class="col-md-4">
-          <a href="">
-            <img src="../images/location-white.png" alt="">
-            <span>
-              Passages of Lorem Ipsum available
-            </span>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="">
-            <img src="../images/telephone-white.png" alt="">
-            <span>
-              Call : +012334567890
-            </span>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="">
-            <img src="../images/envelope-white.png" alt="">
-            <span>
-              demo@gmail.com
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 col-lg-9">
-        <div class="info_form">
-          <form action="">
-            <input type="text" placeholder="Enter your email">
-            <button>
-              subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3">
-        <div class="info_social">
-          <div>
-            <a href="">
-              <img src="../images/fb.png" alt="">
-            </a>
-          </div>
-          <div>
-            <a href="">
-              <img src="../images/twitter.png" alt="">
-            </a>
-          </div>
-          <div>
-            <a href="">
-              <img src="../images/linkedin.png" alt="">
-            </a>
-          </div>
-          <div>
-            <a href="">
-              <img src="../images/instagram.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <?php get_footer();

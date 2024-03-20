@@ -6,8 +6,8 @@
 	function custom_script()
 	{
 
-		wp_enqueue_script('bootstrap', 'js/bootstrap.js', array(), false, true);
-		wp_enqueue_script('jquery-js', 'js/jquery-3.4.1.min.js', array(), false, true);
+		wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), false, true);
+		wp_enqueue_script('jquery-js', get_template_directory_uri() . '/js/jquery-3.4.1.min.js', array(), false, true);
 	}
 
 	add_action('wp_enqueue_scripts', 'custom_script');
@@ -42,7 +42,7 @@
 	
 	// Filtre pour modifier le "lire la suite" en fin d'extrait
 	function customLireLaSuite() {
-		return '&nbsp; -> ... <-';
+		return '&nbsp;...';
 	}
 	add_filter('excerpt_more', 'customLireLaSuite');
 	
@@ -65,6 +65,7 @@
 		) 
 		);
 	}
+	add_action( 'widgets_init', 'electrochip_widgets_init' );
 
 	// Création d'un nouveau type de contenu
 	function api_post_type() 
@@ -142,6 +143,13 @@
 			'menu_title'	=> 'Réseaux sociaux',
 			'parent_slug'	=> 'config-theme',
 		));
+
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Logo',
+			'menu_title'	=> 'Logo',
+			'parent_slug'	=> 'config-theme',
+		));
+
 	}
 	
 	
