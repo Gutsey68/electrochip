@@ -26,14 +26,15 @@ get_header();
           ?>
           <div class="col-md-6">
             <div class="box">
+            <a href="<?php the_permalink(); ?>" class="">
               <div class="img-box">
                 <?php the_post_thumbnail(); ?>
               </div>
               <div class="detail-box">
                 <h5><?php the_title(); ?></h5>
                 <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>" class="">Lire l'article</a>
               </div>
+              </a>
             </div>
           </div>
         <?php } } wp_reset_postdata(); ?>

@@ -689,4 +689,12 @@ a:focus {
 .footer_section p a {
   color: #222222;
 }
-/*# sourceMappingURL=style.css.map */
+
+/* Custom CSS */
+
+div.detail-box {
+  text-decoration: none;
+  color: #000000;
+}
+div.detail-box h5 { color: #2e0e5f;
+}

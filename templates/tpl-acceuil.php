@@ -64,14 +64,15 @@ get_header();
 					if ( $requete->have_posts() ) { while ($requete->have_posts())  { $requete->the_post();
 				?>
           <div class="box">
+            <a href="<?php the_permalink(); ?>">
             <div class="img-box">
               <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img1" alt="<?php the_title_attribute(); ?>">
             </div>
             <div class="detail-box">
               <h5><?php the_title(); ?></h5>
               <?php the_excerpt(); ?>
-              <a href="<?php the_permalink(); ?>">En savoir plus</a>
             </div>
+          </a>
           </div>
       <?php 
         } } 
@@ -112,9 +113,7 @@ get_header();
 <section class="blog_section layout_padding">
   <div class="container">
     <div class="heading_container">
-      <h2>
-        Blog
-      </h2>
+      <h2>Blog</h2>
       <img src="../images/plug.png" alt="">
     </div>
     <div class="row">
@@ -129,14 +128,15 @@ get_header();
           ?>
           <div class="col-md-6">
             <div class="box">
+            <a href="<?php the_permalink(); ?>" class="">
               <div class="img-box">
                 <?php the_post_thumbnail(); ?>
               </div>
               <div class="detail-box">
                 <h5><?php the_title(); ?></h5>
                 <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>" class="">Lire l'article</a>
               </div>
+              </a>
             </div>
           </div>
         <?php } } wp_reset_postdata(); ?>
@@ -144,7 +144,6 @@ get_header();
     </div>
   </div>
 </section>
-<!-- end blog section -->
 <!-- contact section -->
 <section class="contact_section layout_padding">
   <div class="container ">

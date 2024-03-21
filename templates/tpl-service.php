@@ -23,14 +23,15 @@ get_header();
 					if ( $requete->have_posts() ) { while ($requete->have_posts())  { $requete->the_post();
 				?>
             <div class="box">
+            <a href="<?php the_permalink(); ?>">
               <div class="img-box">
                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img1" alt="<?php the_title_attribute(); ?>">
               </div>
               <div class="detail-box">
                 <h5><?php the_title(); ?></h5>
                 <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>">En savoir plus</a>
               </div>
+              </a>
             </div>
 				<?php 
 					} } 
