@@ -360,7 +360,7 @@ a:focus {
   border-top: 15px solid #512a97;
 }
 
-.service_section .btn-box {
+.service_section .btn-box, .blog_section .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -370,7 +370,7 @@ a:focus {
   margin-top: 25px;
 }
 
-.service_section .btn-box a {
+.service_section .btn-box a , .blog_section .btn-box a {
   display: inline-block;
   padding: 10px 35px;
   background-color: #4b208c;
@@ -378,7 +378,7 @@ a:focus {
   border-radius: 35px;
 }
 
-.service_section .btn-box a:hover {
+.service_section .btn-box a:hover , .blog_section .btn-box a:hover {
   background-color: #5625a1;
 }
 
@@ -696,5 +696,18 @@ div.detail-box {
   text-decoration: none;
   color: #000000;
 }
-div.detail-box h5 { color: #2e0e5f;
+
+
+.about_service_section .img_container .img-box {
+  border: 5px solid #7b57b2;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.about_service_section .img_container .img-box.b1 {
+  width: 70%;
+}
+
+.wpcf7 input {
+  margin-bottom: 0 !important;
 }

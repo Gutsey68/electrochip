@@ -34,14 +34,14 @@
 	
 	// Filtre pour modifier la longueur de l'extrait pour les articles
 	function longueurExtrait() {
-		return 20;
+		return 10;
 	}
 	add_filter('excerpt_length', 'longueurExtrait');
 
 	
 	// Filtre pour modifier le "lire la suite" en fin d'extrait
 	function customLireLaSuite() {
-		return '&nbsp;...';
+		return '&nbsp;[...]';
 	}
 	add_filter('excerpt_more', 'customLireLaSuite');
 	
@@ -146,6 +146,11 @@
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Logo',
 			'menu_title'	=> 'Logo',
+			'parent_slug'	=> 'config-theme',
+		));
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Image 404',
+			'menu_title'	=> 'Image 404',
 			'parent_slug'	=> 'config-theme',
 		));
 

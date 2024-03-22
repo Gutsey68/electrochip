@@ -22,6 +22,7 @@ get_header();
 					));
 					if ( $requete->have_posts() ) { while ($requete->have_posts())  { $requete->the_post();
 				?>
+        <div class="col-md-4">
             <div class="box">
             <a href="<?php the_permalink(); ?>">
               <div class="img-box">
@@ -32,6 +33,7 @@ get_header();
                 <?php the_excerpt(); ?>
               </div>
               </a>
+            </div>
             </div>
 				<?php 
 					} } 
