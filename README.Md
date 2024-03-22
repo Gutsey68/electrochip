@@ -2,7 +2,7 @@
 
 Bienvenue sur le repository GitHub d'**Electrochip**, votre spécialiste en solutions électriques pour projets résidentiels, commerciaux et industriels, dédié à fournir des services électriques personnalisés avec expertise, fiabilité et innovation.
 
-![Electrochip](screanshot.png)
+![Electrochip](screenshot.png)
 
 ## À Propos
 
