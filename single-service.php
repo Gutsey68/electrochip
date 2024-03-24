@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-	<section class="about_section layout_padding">
-		<div class="container ">
-			<div class="row">
+<section class="about_section layout_padding">
+	<div class="container ">
+		<div class="row">
 			<div class="col-md-8">
 				<div class="d-flex justify-content-center mb-5 ">
 					<?php the_post_thumbnail(); ?>
@@ -23,9 +23,9 @@
 					));
 					if ($otherservices->have_posts()) {
 						while ($otherservices->have_posts()) {
-						$otherservices->the_post();
+							$otherservices->the_post();
 					?>
-						<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 					<?php
 						}
 					}
@@ -34,5 +34,5 @@
 				</ul>
 			</div>
 		</div>
-	</section>
+</section>
 <?php get_footer(); ?>

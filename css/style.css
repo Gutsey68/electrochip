@@ -711,3 +711,9 @@ div.detail-box {
 .wpcf7 input {
   margin-bottom: 0 !important;
 }
+
+@media only screen and (max-width: 601px) {
+  #service {
+    margin-top: 5rem;
+  }
+}
